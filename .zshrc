@@ -62,7 +62,7 @@ fi
 alias oh-my-posh=$OMP_EXE
 #
 # Initialize OMP
-eval "$(oh-my-posh init zsh)"
+eval "$(oh-my-posh init zsh --config $OMP_THEM_PATH)"
 #
 # Get and download zinit
 ZINIT_HOME="$HOME/.config/zinit/zinit.git"
