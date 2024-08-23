@@ -27,9 +27,13 @@ case "${platform}" in
 esac
 #
 # Get and download the correct OMP
-correct_omp="~/.config/oh-my-posh/posh-$platform-$arch"
+correct_omp="$HOME/.config/oh-my-posh/posh-$platform-$arch"
 if [ ! -f "$correct_omp" ]; then
 	echo "Downloading Oh My Posh for $platform-$arch"
-	curl -s -o "$correct_omp" "https://github.com/JanDeDobbeleer/oh-my-posh/releases/download/latest/posh-$platform-$arch"
+	curl -s -L -o "$correct_omp" "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-$platform-$arch"
+	chmod +x "$correct_omp"
 fi
 alias oh-my-posh="$correct_omp"
+#
+# Initialize OMP
+eval "$(oh-my-posh init zsh)"
