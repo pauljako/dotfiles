@@ -1,5 +1,17 @@
 # My .zshrc the core for everything
 #
+#
+# Configurations:
+# 
+## The Oh-my-posh theme to use.
+## Possible values: basic
+#
+OMP_THEME="basic"
+#
+#
+# Code:
+#
+#
 # Colored ls
 alias ls=ls --color=auto
 #
@@ -29,6 +41,9 @@ esac
 # Set the OMP Path and create the directory
 OMP_PATH="$HOME/.config/oh-my-posh"
 [ ! -d $OMP_PATH ] && mkdir -p "$(dirname $OMP_PATH)"
+#
+# Set the path to the OMP Theme
+OMP_THEME_PATH="$OMP_PATH/$OMP_THEME.toml"
 #
 # Set the OMP target Platform
 OMP_TARGET="$platform-$arch"
