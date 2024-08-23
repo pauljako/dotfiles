@@ -12,9 +12,6 @@ OMP_THEME="basic"
 # Code:
 #
 #
-# Colored ls
-alias ls=ls --color=auto
-#
 # Detect Device Arch
 arch="$(uname -m | tr '[:upper:]' '[:lower:]')"
 
@@ -70,3 +67,6 @@ ZINIT_HOME="$HOME/.config/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 # Initialize zinit
 source "${ZINIT_HOME}/zinit.zsh"
+#
+# Colored ls
+alias ls="ls --color=auto"
