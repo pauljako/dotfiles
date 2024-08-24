@@ -68,6 +68,12 @@ ZINIT_HOME="$HOME/.config/zinit/zinit.git"
 # Initialize zinit
 source "${ZINIT_HOME}/zinit.zsh"
 #
+# Initialize TheF*ck if it exists
+if command -v thefuck &> /dev/null
+then
+    eval "$(thefuck --alias)"
+fi
+#
 # Colored ls
 alias ls="ls --color=auto"
 #
