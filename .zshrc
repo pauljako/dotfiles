@@ -91,6 +91,9 @@ fi
 # Colored ls
 alias ls="ls --color=auto"
 #
+# ls like colored completions
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+#
 # Alias please to run0, doas, sudo or su
 if command -v run0 &> /dev/null
 then
