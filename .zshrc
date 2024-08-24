@@ -65,6 +65,7 @@ eval "$(oh-my-posh init zsh --config $OMP_THEME_PATH)"
 ZINIT_HOME="$HOME/.config/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+#
 # Initialize zinit
 source "${ZINIT_HOME}/zinit.zsh"
 #
@@ -103,6 +104,9 @@ fi
 #
 # Alias la to ls -la
 alias la="ls -la"
+#
+# Enable emacs keybindings
+bindkey -e
 #
 # Load the zsh completion system
 autoload -U compinit && compinit
