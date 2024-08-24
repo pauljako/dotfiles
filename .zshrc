@@ -4,7 +4,7 @@
 # Configurations:
 # 
 ## The Oh-my-posh theme to use.
-## Possible values: basic
+## Possible values: basic, basic-nerd
 #
 OMP_THEME="basic"
 #
