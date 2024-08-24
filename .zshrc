@@ -68,6 +68,15 @@ ZINIT_HOME="$HOME/.config/zinit/zinit.git"
 # Initialize zinit
 source "${ZINIT_HOME}/zinit.zsh"
 #
+# Command Syntax Highlighting
+zinit light zsh-users/zsh-syntax-highlighting
+#
+# Command Completions
+zinit light zsh-users/zsh-completions
+#
+# Inline Command Suggestions based on history
+zinit light zsh-users/zsh-autosuggestions
+#
 # Initialize TheF*ck if it exists
 if command -v thefuck &> /dev/null
 then
@@ -94,3 +103,6 @@ fi
 #
 # Alias la to ls -la
 alias la="ls -la"
+#
+# Load the zsh completion system
+autoload -U compinit && compinit
