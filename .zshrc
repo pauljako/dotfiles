@@ -8,6 +8,10 @@
 #
 OMP_THEME="basic"
 #
+## The max size (in lines) of the .zsh_history file
+## Default: 5000
+#
+HISTSIZE=5000
 #
 # Code:
 #
@@ -107,6 +111,28 @@ alias la="ls -la"
 #
 # Enable emacs keybindings
 bindkey -e
+#
+# The file the History is written to
+HISTFILE=~/.zsh_history
+#
+# The maximum History Size
+SAVEHIST=$HISTSIZE
+#
+# Erease duplicates
+HISTDUP=erase
+#
+# Share History between Sessions
+setopt appendhistory
+setopt sharehistory
+#
+# Ignore when Space is in front
+setopt hist_ignore_space
+#
+# Ingore Duplicates
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 #
 # Load the zsh completion system
 autoload -U compinit && compinit
