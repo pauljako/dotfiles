@@ -82,6 +82,15 @@ zinit light zsh-users/zsh-completions
 # Inline Command Suggestions based on history
 zinit light zsh-users/zsh-autosuggestions
 #
+# Load the zsh completion system
+autoload -U compinit && compinit
+# Initialize Zoxide if it exists
+#
+if command -v zoxide &> /dev/null
+then
+    eval "$(zoxide init --cmd cd zsh)"
+fi
+#
 # Initialize TheF*ck if it exists
 if command -v thefuck &> /dev/null
 then
@@ -136,6 +145,3 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-#
-# Load the zsh completion system
-autoload -U compinit && compinit
