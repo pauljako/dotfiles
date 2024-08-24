@@ -70,3 +70,21 @@ source "${ZINIT_HOME}/zinit.zsh"
 #
 # Colored ls
 alias ls="ls --color=auto"
+#
+# Alias please to run0, doas, sudo or su
+if command -v run0 &> /dev/null
+then
+    alias please="run0"
+elif command -v doas &> /dev/null
+then
+    alias please="doas"
+elif command -v sudo &> /dev/null
+then
+    alias please="sudo"
+elif command -v su &> /dev/null
+then
+    alias please="su -c "
+fi
+#
+# Alias la to ls -la
+alias la="ls -la"
