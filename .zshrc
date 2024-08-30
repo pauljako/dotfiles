@@ -84,8 +84,8 @@ zinit light zsh-users/zsh-autosuggestions
 #
 # Load the zsh completion system
 autoload -U compinit && compinit
-# Initialize Zoxide if it exists
 #
+# Initialize Zoxide if it exists
 if command -v zoxide &> /dev/null
 then
     eval "$(zoxide init --cmd cd zsh)"
@@ -95,6 +95,15 @@ fi
 if command -v thefuck &> /dev/null
 then
     eval "$(thefuck --alias)"
+fi
+#
+# Add boundaries to the path if it exists
+if [ -f "$HOME/.bndpath" ]
+then
+    PATH="$(cat $HOME/.bndpath)/exec/bin:$PATH"
+elif [ -d "$HOME/boundaries" ]
+then
+    PATH="$HOME/boundaries/exec/bin:$PATH"
 fi
 #
 # Colored ls
