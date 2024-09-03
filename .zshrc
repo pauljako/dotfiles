@@ -13,6 +13,11 @@ OMP_THEME="basic"
 #
 HISTSIZE=5000
 #
+## Whether to show pfetch when a shell starts or the shell is cleared. Only works if pfetch is installed
+## Possible Valuse: 0 (disabled), 1 (enabled, default)
+#
+SHOW_PFETCH=1
+#
 # Code:
 #
 #
@@ -154,3 +159,10 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+#
+# Show pfetch if it is enabled and installed
+if [ "${SHOW_PFETCH}" = "1" ] && command -v pfetch &> /dev/null
+then
+	alias clear="clear && pfetch"
+	pfetch
+fi
