@@ -1,0 +1,17 @@
+# The configuration file for my dotfiles
+# 
+## The Oh-my-posh theme to use. Themes ending in "nerd" require nerd fonts
+## Possible values: basic, basic-nerd
+#
+OMP_THEME="basic"
+#
+## The max size (in lines) of the .zsh_history file
+## Default: 5000
+#
+HISTSIZE=5000
+#
+## Whether to show pfetch when a shell starts or the shell is cleared. Only works if pfetch is installed
+## Possible Valuse: 0 (disabled), 1 (enabled, default)
+#
+SHOW_PFETCH=1
+#
