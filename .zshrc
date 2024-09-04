@@ -1,25 +1,27 @@
 # My .zshrc the core for everything
 #
+# Set the path(s) to the config file(s)
+CONFIG_PATH="$HOME/.config/dotfiles/config"
+DEFAULT_CONFIG_PATH="$HOME/.config/dotfiles/config.default"
 #
-# Configurations:
-# 
-## The Oh-my-posh theme to use.
-## Possible values: basic, basic-nerd
+# Give an Error if the default configuration could not be found
+if [ ! -f "${DEFAULT_CONFIG_PATH}" ]
+then
+	echo "Error: The default configuration file (${DEFAULT_CONFIG_PATH}) could not be found"
+	exit 1
+fi
 #
-OMP_THEME="basic"
+# Source the default configuration to prevent errors
+source "${DEFAULT_CONFIG_PATH}"
 #
-## The max size (in lines) of the .zsh_history file
-## Default: 5000
+# Copy the default configuration file if it does not exist
+if [ ! -f "${CONFIG_PATH}" ]
+then
+	cp "${DEFAULT_CONFIG_PATH}" "${CONFIG_PATH}"
+fi
 #
-HISTSIZE=5000
-#
-## Whether to show pfetch when a shell starts or the shell is cleared. Only works if pfetch is installed
-## Possible Valuse: 0 (disabled), 1 (enabled, default)
-#
-SHOW_PFETCH=1
-#
-# Code:
-#
+# Source the normal configuration
+source "${CONFIG_PATH}"
 #
 # Detect Device Arch
 arch="$(uname -m | tr '[:upper:]' '[:lower:]')"
