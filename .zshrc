@@ -45,7 +45,7 @@ case "${platform}" in
 esac
 #
 # Set the OMP Path and create the directory
-OMP_PATH="$HOME/.config/oh-my-posh"
+OMP_PATH="$HOME/.config/dotfiles/oh-my-posh"
 [ ! -d $OMP_PATH ] && mkdir -p "$(dirname $OMP_PATH)"
 #
 # Set the path to the OMP Theme
@@ -71,7 +71,7 @@ alias oh-my-posh=$OMP_EXE
 eval "$(oh-my-posh init zsh --config $OMP_THEME_PATH)"
 #
 # Get and download zinit
-ZINIT_HOME="$HOME/.config/zinit/zinit.git"
+ZINIT_HOME="$HOME/.config/dotfiles/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 #
