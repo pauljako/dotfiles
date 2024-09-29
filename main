@@ -162,6 +162,15 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 #
+# Command to update Dotfiles
+update-dotfiles () {
+	pushd "$HOME/.config/dotfiles"
+	git pull
+	oh-my-posh upgrade
+	popd
+	echo "Dotfiles updated. You might need to restart your shell with exec zsh."
+}
+#
 # Show pfetch if it is enabled and installed
 if [ "${SHOW_PFETCH}" = "1" ] && command -v pfetch &> /dev/null
 then
