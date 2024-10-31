@@ -120,15 +120,15 @@ alias ls="ls --color=auto"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 #
 # Alias please to run0, doas, sudo or su
-if command -v run0 &> /dev/null
-then
-    alias please='run0 env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" DISPLAY="$DISPLAY"'
-elif command -v doas &> /dev/null
+if command -v doas &> /dev/null
 then
     alias please='doas env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" DISPLAY="$DISPLAY"'
 elif command -v sudo &> /dev/null
 then
     alias please='sudo env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" DISPLAY="$DISPLAY"'
+elif command -v run0 &> /dev/null
+then
+    alias please='run0 env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" DISPLAY="$DISPLAY"'
 elif command -v su &> /dev/null
 then
     alias please='su -c env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" DISPLAY="$DISPLAY"'
