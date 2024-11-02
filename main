@@ -89,6 +89,13 @@ zinit light zsh-users/zsh-completions
 # Inline Command Suggestions based on history
 zinit light zsh-users/zsh-autosuggestions
 #
+# Initialize fzf if it exists
+if [ "${USE_FZF}" = "1" ] && command -v fzf &> /dev/null
+then
+    eval "$(fzf --zsh)"
+    zinit light Aloxaf/fzf-tab
+fi
+#
 # Load the zsh completion system
 autoload -U compinit && compinit
 #
@@ -118,6 +125,16 @@ alias ls="ls --color=auto"
 #
 # ls like colored completions
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+#
+# Ignore completion capitalisation
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+#
+# Disable the default autocompletion if fzf exists and show a better cd completion
+if [ "${USE_FZF}" = "1" ] && command -v fzf &> /dev/null
+then
+    zstyle ':completion:*' menu no
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+fi
 #
 # Alias please to run0, doas, sudo or su
 if command -v doas &> /dev/null

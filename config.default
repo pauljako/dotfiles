@@ -11,7 +11,12 @@ OMP_THEME="basic"
 HISTSIZE=5000
 #
 ## Whether to show pfetch when a shell starts or the shell is cleared. Only works if pfetch is installed
-## Possible Valuse: 0 (disabled), 1 (enabled, default)
+## Possible values: 0 (disabled), 1 (enabled, default)
 #
 SHOW_PFETCH=1
+#
+## Whether to use fzf for shell completions and other cool stuff. Only works when fzf is installed
+## Possible values: 0 (disabled), 1 (enabled, default)
+#
+USE_FZF=1
 #
