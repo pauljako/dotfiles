@@ -96,14 +96,14 @@ then
     zinit light Aloxaf/fzf-tab
 fi
 #
-# Load the zsh completion system
-autoload -U compinit && compinit
-#
 # Initialize Zoxide if it exists
 if command -v zoxide &> /dev/null
 then
     eval "$(zoxide init --cmd cd zsh)"
 fi
+#
+# Load the zsh completion system
+autoload -U compinit && compinit
 #
 # Initialize TheF*ck if it exists
 if command -v thefuck &> /dev/null
