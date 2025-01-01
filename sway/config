@@ -23,7 +23,7 @@ set $filemanager nemo
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | wmenu | xargs swaymsg exec --
-set $dmenu dmenu
+set $dmenu dmenu -i
 set $menu j4-dmenu-desktop --no-generic --dmenu=$dmenu
 set $background ~/.wallpaper
 ### Output configuration
