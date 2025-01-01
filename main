@@ -22,6 +22,13 @@ fi
 #
 # Source the normal configuration
 source "${CONFIG_PATH}"
+# Add ~/.local/bin and ~/bin to the PATH
+if [ -d "$HOME/bin" ]; then
+	export PATH="$HOME/bin:$PATH"
+fi
+if [ -d "$HOME/.local/bin" ]; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
 #
 # Detect Device Arch
 arch="$(uname -m | tr '[:upper:]' '[:lower:]')"

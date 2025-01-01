@@ -1,4 +1,5 @@
 .DS_Store
 oh-my-posh/posh-*
 zinit/
-./config
+config
+*.bak

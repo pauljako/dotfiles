@@ -1,47 +1,42 @@
-"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+console_title_template = '{{.PWD}}'
+version = 3
 final_space = true
-version = 2
-console_title_template = "{{.PWD}}"
-
-[[blocks]]
-type = "prompt"
-alignment = "left"
-newline = true
-
-  [[blocks.segments]]
-  type = "root"
-  style = "plain"
-  template = "(Root) "
-
-  [[blocks.segments]]
-  type = "session"
-  style = "plain"
-  template = "{{ if .SSHSession }}(SSH) {{ end }}"
-
-  [[blocks.segments]]
-  type = "path"
-  style = "plain"
-  foreground = "white"
-
-    [blocks.segments.properties]
-    style = "powerlevel"
-
-  [[blocks.segments]]
-  type = "text"
-  foreground = "white"
-  style = "plain"
-  template = ">"
-
-[transient_prompt]
-  foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}white{{end}}",
-  ]
-  background = 'transparent'
-  template = '> '
-
 
 [secondary_prompt]
+  template = ' >> '
   foreground = 'white'
   background = 'transparent'
-  template = ' >> '
+
+[transient_prompt]
+  template = '> '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}white{{end}}']
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '(Root) '
+    type = 'root'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '{{ if .SSHSession }}(SSH) {{ end }}'
+    type = 'session'
+
+  [[blocks.segments]]
+    style = 'plain'
+    foreground = 'white'
+    type = 'path'
+
+    [blocks.segments.properties]
+      style = 'powerlevel'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '>'
+    foreground = 'white'
+    type = 'text'
