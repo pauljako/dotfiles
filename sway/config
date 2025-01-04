@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term alacritty
 # Your preferred browser
 set $web firefox
 # Your preferred file manager
@@ -24,7 +24,7 @@ set $filemanager nemo
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $dmenu dmenu -i
-set $menu j4-dmenu-desktop --no-generic --dmenu=$dmenu
+set $menu j4-dmenu-desktop --no-generic --dmenu="$dmenu"
 set $background ~/.wallpaper
 ### Output configuration
 #
@@ -94,7 +94,7 @@ font pango:JetBrainsMonoNerdFont 9
 
     # Start your launcher
     bindsym $mod+Space exec $menu
-    bindsym $mod+Shift+B exec --no-startup-id DMENU_BLUETOOTH_LAUNCHER=$dmenu ~/.config/dotfiles/sway/dmenu-bluetooth.sh
+    bindsym $mod+Shift+B exec --no-startup-id DMENU_BLUETOOTH_LAUNCHER="$dmenu" ~/.config/dotfiles/sway/dmenu-bluetooth.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -183,6 +183,7 @@ font pango:JetBrainsMonoNerdFont 9
     bindsym $mod+s layout stacking
     bindsym $mod+Shift+w layout tabbed
     bindsym $mod+Shift+e layout toggle split
+    bindsym $mod+t layout toggle split tabbed
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
