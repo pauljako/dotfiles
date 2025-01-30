@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred browser
-set $web firefox
+set $web xdg-open http://
 # Your preferred file manager
 set $filemanager nemo
 # Your preferred application launcher
