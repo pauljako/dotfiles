@@ -176,6 +176,9 @@ alias la="ls -la"
 # Enable emacs keybindings
 bindkey -e
 #
+# Support for the delete key
+bindkey "^[[3~" delete-char
+#
 # The file the History is written to
 HISTFILE=~/.zsh_history
 #
