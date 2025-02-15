@@ -29,6 +29,15 @@ final_space = true
 
   [[blocks.segments]]
     style = 'plain'
+    type = 'command'
+    template = '{{ if .Output }}(Nix-Shell) {{ end }}'
+    [blocks.segments.properties]
+      shell = 'bash'
+      command = "echo $PATH | grep -qc /nix/store && echo true"
+      interpret = false
+
+  [[blocks.segments]]
+    style = 'plain'
     foreground = 'white'
     type = 'path'
 

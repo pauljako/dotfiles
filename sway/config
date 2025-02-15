@@ -26,6 +26,7 @@ set $filemanager nemo
 set $dmenu wmenu -i
 set $menu j4-dmenu-desktop --no-generic --dmenu="$dmenu"
 set $background ~/.wallpaper
+set $lock swaylock -i $background
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
@@ -91,6 +92,9 @@ font pango:JetBrainsMonoNerdFont 9
     bindsym $mod+E exec $filemanager
     # Kill focused window
     bindsym $mod+q kill
+
+    # Lock the Screen
+    bindsym $mod+p exec $lock
 
     # Start your launcher
     bindsym $mod+Space exec $menu
