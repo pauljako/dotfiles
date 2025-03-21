@@ -26,7 +26,7 @@ set $filemanager nemo
 set $dmenu tofi
 set $menu j4-dmenu-desktop --no-generic --dmenu="$dmenu"
 set $background ~/.wallpaper
-set $lock swaylock -i $background
+set $lock swaylock -i $background -F
 set $bar yambar
 ### Output configuration
 #
@@ -51,8 +51,23 @@ output * bg $background fill
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+
+exec swayidle -w timeout 60 "$lock"
+
 exec_always ~/.config/dotfiles/sway/lock.sh
 exec_always libinput-gestures
+
+
+# Assign Windows to Workspaces
+for_window [app_id="kitty"] move container to workspace 1; workspace 1
+for_window [app_id="zen"] move container to workspace 2; workspace 2
+for_window [app_id="firefox"] move container to workspace 2; workspace 2
+for_window [app_id="dev.zed.Zed"] move container to workspace 3; workspace 3
+for_window [app_id="Code"] move container to workspace 3; workspace 3
+for_window [app_id="Element"] move container to workspace 5; workspace 5
+
+# Floating Rules
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 
 
 default_border pixel
@@ -274,6 +289,6 @@ bindsym $mod+r mode "resize"
 #          inactive_workspace #32323288 #32323288 #ffffff
 #      }
 # }
-exec_always $bar
+exec $bar
 
 include /etc/sway/config.d/*
