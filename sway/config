@@ -23,10 +23,11 @@ set $filemanager nemo
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | wmenu | xargs swaymsg exec --
-set $dmenu wmenu -i
+set $dmenu tofi
 set $menu j4-dmenu-desktop --no-generic --dmenu="$dmenu"
 set $background ~/.wallpaper
 set $lock swaylock -i $background
+set $bar yambar
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
@@ -52,6 +53,24 @@ output * bg $background fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec_always ~/.config/dotfiles/sway/lock.sh
 exec_always libinput-gestures
+
+
+default_border pixel
+blur enable
+corner_radius 10
+
+layer_effects "panel" {
+  blur enable;
+  corner_radius 10;
+  blur_xray enable;
+}
+layer_effects "launcher" {
+  blur enable;
+  corner_radius 10;
+  blur_xray enable;
+}
+gaps inner 2
+
 ### Input configuration
 #
 # Example configuration:
@@ -241,18 +260,20 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command bash ~/.config/dotfiles/sway/statusbar.sh
-
-    colors {
-        statusline #ffffff
-        background #32323288
-        inactive_workspace #32323288 #32323288 #ffffff
-    }
-}
+# bar {
+#      id 0
+#      position top
+#  
+#      # When the status_command prints a new line to stdout, swaybar updates.
+#      # The default just shows the current date and time.
+#      status_command bash ~/.config/dotfiles/sway/statusbar.sh
+#  
+#      colors {
+#          statusline #ffffff
+#          background #32323288
+#          inactive_workspace #32323288 #32323288 #ffffff
+#      }
+# }
+exec_always $bar
 
 include /etc/sway/config.d/*
