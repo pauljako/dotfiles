@@ -52,7 +52,7 @@ output * bg $background fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-exec swayidle -w timeout 60 "$lock"
+exec swayidle -w timeout 120 "$lock"
 
 exec_always ~/.config/dotfiles/sway/lock.sh
 exec_always libinput-gestures
@@ -85,6 +85,12 @@ layer_effects "launcher" {
   blur_xray enable;
 }
 gaps inner 2
+
+
+# Colorscheme
+client.focused #84A0C6 #84A0C6 #ffffff
+client.urgent #E27878 #E27878 #ffffff
+client.focused_inactive #2E313F #2E313F #ffffff
 
 ### Input configuration
 #
