@@ -31,27 +31,34 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 #
 # Detect Device Arch
-arch="$(uname -m | tr '[:upper:]' '[:lower:]')"
+get_architecture() {
+  arch="$(uname -m | tr '[:upper:]' '[:lower:]')"
 
-case "${arch}" in
-  x86_64) arch="amd64" ;;
-  armv*) arch="arm" ;;
-  arm64) arch="arm64" ;;
-  aarch64) arch="arm64" ;;
-  i686) arch="386" ;;
-esac
+  case "${arch}" in
+    x86_64) arch="amd64" ;;
+    armv*) arch="arm" ;;
+    arm64) arch="arm64" ;;
+    aarch64) arch="arm64" ;;
+    i686) arch="386" ;;
+  esac
 
-if [ "${arch}" = "arm64" ] && [ "$(getconf LONG_BIT)" -eq 32 ]; then
-  arch=arm
-fi
+  if [ "${arch}" = "arm64" ] && [ "$(getconf LONG_BIT)" -eq 32 ]; then
+    arch=arm
+  fi
+  echo "$arch"
+}
 #
 # Detect Device Platform
-platform="$(uname -s | awk '{print tolower($0)}')"
+get_platform() {
+  platform="$(uname -s | awk '{print tolower($0)}')"
+  
+  case "${platform}" in
+    linux) platform="linux" ;;
+    darwin) platform="darwin" ;;
+  esac
 
-case "${platform}" in
-  linux) platform="linux" ;;
-  darwin) platform="darwin" ;;
-esac
+  echo "$platform"
+}
 #
 # Set the OMP Path and create the directory
 OMP_PATH="$HOME/.config/dotfiles/oh-my-posh"
@@ -61,7 +68,7 @@ OMP_PATH="$HOME/.config/dotfiles/oh-my-posh"
 OMP_THEME_PATH="$OMP_PATH/$OMP_THEME.toml"
 #
 # Set the OMP target Platform
-OMP_TARGET="$platform-$arch"
+OMP_TARGET="$(get_platform)-$(get_architecture)"
 #
 # Set the path to the OMP Executeable
 OMP_EXE="$OMP_PATH/posh-$OMP_TARGET"
