@@ -70,6 +70,7 @@ for_window [app_id="Element"] move container to workspace 5; workspace 5
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable; sticky enable
 for_window [app_id="solaar"] floating enable; sticky enable
 for_window [title="Picture-in-Picture"] floating enable; sticky enable
+for_window [class="Supersonic"] floating enable; sticky enable
 
 
 default_border pixel
