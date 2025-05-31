@@ -27,7 +27,7 @@ set $dmenu tofi
 set $menu j4-dmenu-desktop --no-generic --dmenu="$dmenu"
 set $background ~/.wallpaper
 set $lock swaylock -i $background -F
-set $bar yambar
+set $bar 'bash -c "while true; do yambar; done"'
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
