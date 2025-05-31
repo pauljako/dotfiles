@@ -20,3 +20,8 @@ SHOW_PFETCH=1
 #
 USE_FZF=1
 #
+## Whether to use eza instead of ls. Only works when eza is installed
+## Possible values: 0 (disabled), 1 (enabled, default)
+#
+USE_EZA=1
+#

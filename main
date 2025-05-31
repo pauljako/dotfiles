@@ -166,7 +166,10 @@ then
 fi
 #
 # set the correct editor
-if command -v nvim &> /dev/null
+if command -v hx &> /dev/null
+then
+    export EDITOR="hx"
+elif command -v nvim &> /dev/null
 then
     export EDITOR="nvim"
 elif command -v vim &> /dev/null
@@ -179,6 +182,12 @@ fi
 #
 # Alias la to ls -la
 alias la="ls -la"
+#
+# Alias ls to eza
+if [ "${USE_EZA}" = "1" ] && command -v eza &> /dev/null
+then
+    alias ls="eza"
+fi
 #
 # Enable emacs keybindings
 bindkey -e
