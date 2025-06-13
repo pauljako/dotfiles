@@ -60,11 +60,15 @@ exec_always libinput-gestures
 
 # Assign Windows to Workspaces
 for_window [app_id="kitty"] move container to workspace 1; workspace 1
+
 for_window [app_id="zen"] move container to workspace 2; workspace 2
 for_window [app_id="firefox"] move container to workspace 2; workspace 2
+
 for_window [app_id="dev.zed.Zed"] move container to workspace 3; workspace 3
 for_window [app_id="Code"] move container to workspace 3; workspace 3
+
 for_window [app_id="Element"] move container to workspace 5; workspace 5
+for_window [class="vesktop"] move container to workspace 5; workspace 5
 
 # Floating Rules
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable; sticky enable
