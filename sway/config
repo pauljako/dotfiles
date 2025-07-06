@@ -27,7 +27,6 @@ set $dmenu tofi
 set $menu j4-dmenu-desktop --no-generic --dmenu="$dmenu"
 set $background ~/.wallpaper
 set $lock swaylock -i $background -F
-set $bar 'bash -c "while true; do yambar; done"'
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
@@ -70,7 +69,7 @@ for_window [app_id="dev.zed.Zed"] move container to workspace 3; workspace 3
 for_window [app_id="Code"] move container to workspace 3; workspace 3
 
 for_window [app_id="Element"] move container to workspace 5; workspace 5
-for_window [class="vesktop"] move container to workspace 5; workspace 5
+for_window [app_id="legcord"] move container to workspace 5; workspace 5
 
 # Floating Rules
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable; sticky enable
@@ -290,20 +289,23 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-# bar {
-#      id 0
-#      position top
-#  
-#      # When the status_command prints a new line to stdout, swaybar updates.
-#      # The default just shows the current date and time.
-#      status_command bash ~/.config/dotfiles/sway/statusbar.sh
-#  
-#      colors {
-#          statusline #ffffff
-#          background #32323288
-#          inactive_workspace #32323288 #32323288 #ffffff
-#      }
-# }
-exec $bar
+bar {
+     id 0
+     position top
+ 
+     # When the status_command prints a new line to stdout, swaybar updates.
+     # The default just shows the current date and time.
+     status_command bash ~/.config/dotfiles/sway/statusbar.sh
+ 
+     colors {
+         statusline #ffffff
+         background #00000000
+         active_workspace #84A0C6FF #84A0C6FF #FFFFFFFF
+         urgent_workspace #E27878FF #E27878FF #FFFFFFFF
+         inactive_workspace #00000000 #00000000 #FFFFFFFF
+     }
+
+     gaps 2
+}
 
 include /etc/sway/config.d/*
