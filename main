@@ -180,8 +180,8 @@ then
     export EDITOR="nano"
 fi
 #
-# Alias la to ls -la
-alias la="ls -la"
+# Alias la to ls -lah
+alias la="ls -lah"
 #
 # Alias ls to eza
 if [ "${USE_EZA}" = "1" ] && command -v eza &> /dev/null
