@@ -54,7 +54,7 @@ output eDP-1 scale 1.5
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 # Hack for Void Linux
-exec pipewire swaymsg 
+exec pipewire 
 seat * xcursor_theme Bibata-Modern-Classic 24
 
 exec swayidle -w timeout 120 "$lock"
@@ -71,6 +71,8 @@ for_window [app_id="firefox"] move container to workspace 2; workspace 2
 
 for_window [app_id="dev.zed.Zed"] move container to workspace 3; workspace 3
 for_window [app_id="Code"] move container to workspace 3; workspace 3
+
+for_window [app_id="org.prismlauncher.PrismLauncher"] move container to workspace 4; workspace 4
 
 for_window [app_id="Element"] move container to workspace 5; workspace 5
 for_window [app_id="legcord"] move container to workspace 5; workspace 5
