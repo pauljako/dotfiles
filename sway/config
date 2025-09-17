@@ -177,6 +177,8 @@ font pango:JetBrainsMonoNerdFont 9
     bindsym XF86AudioPrev         exec --no-startup-id "playerctl previous"
     bindsym XF86AudioPlay         exec --no-startup-id "playerctl play-pause"
     bindsym XF86AudioNext         exec --no-startup-id "playerctl next"
+
+    bindsym XF86PowerOff exec swaynag -Z "Shutdown" "loginctl poweroff" -Z "Reboot" "loginctl reboot" -Z "Suspend" "loginctl suspend" -m "You pressed the power button. What do you want to do?" -t "warning"
 #
 # Moving around:
 #
