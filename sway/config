@@ -38,8 +38,6 @@ output * bg $background fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output eDP-1 scale 1.5
-
 ### Idle configuration
 #
 # Example configuration:
@@ -76,6 +74,7 @@ for_window [app_id="org.prismlauncher.PrismLauncher"] move container to workspac
 
 for_window [app_id="Element"] move container to workspace 5; workspace 5
 for_window [app_id="legcord"] move container to workspace 5; workspace 5
+for_window [app_id="business.braid.polycule"] move container to workspace 5; workspace 5
 
 # Floating Rules
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable; sticky enable
