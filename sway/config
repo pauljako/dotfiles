@@ -52,14 +52,15 @@ output * bg $background fill
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 # Hack for Void Linux
-exec pipewire 
 seat * xcursor_theme Bibata-Modern-Classic 24
+exec runsvdir $HOME/.service
 
 exec swayidle -w timeout 120 "$lock"
 
 exec_always ~/.config/dotfiles/sway/lock.sh
-exec_always libinput-gestures
 
+bindswitch --reload --locked lid:on output eDP-1 disable
+bindswitch --reload --locked lid:off output eDP-1 enable
 
 # Assign Windows to Workspaces
 for_window [app_id="kitty"] move container to workspace 1; workspace 1
@@ -69,12 +70,16 @@ for_window [app_id="firefox"] move container to workspace 2; workspace 2
 
 for_window [app_id="dev.zed.Zed"] move container to workspace 3; workspace 3
 for_window [app_id="Code"] move container to workspace 3; workspace 3
+for_window [class="jetbrains-idea-ce"] move container to workspace 3; workspace 3
 
 for_window [app_id="org.prismlauncher.PrismLauncher"] move container to workspace 4; workspace 4
+for_window [class="steam"] move container to workspace 4; workspace 4
 
 for_window [app_id="Element"] move container to workspace 5; workspace 5
 for_window [app_id="legcord"] move container to workspace 5; workspace 5
+for_window [class="legcord"] move container to workspace 5; workspace 5
 for_window [app_id="business.braid.polycule"] move container to workspace 5; workspace 5
+for_window [app_id="cinny"] move container to workspace 5; workspace 5
 
 # Floating Rules
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable; sticky enable
@@ -177,7 +182,7 @@ font pango:JetBrainsMonoNerdFont 9
     bindsym XF86AudioPlay         exec --no-startup-id "playerctl play-pause"
     bindsym XF86AudioNext         exec --no-startup-id "playerctl next"
 
-    bindsym XF86PowerOff exec swaynag -Z "Shutdown" "loginctl poweroff" -Z "Reboot" "loginctl reboot" -Z "Suspend" "loginctl suspend" -m "You pressed the power button. What do you want to do?" -t "warning"
+    bindsym XF86PowerOff exec swaynag -Z "Shutdown" "loginctl poweroff" -Z "Reboot" "loginctl reboot" -Z "Suspend" "loginctl suspend" -Z "Hibernate" "loginctl hibernate" -m "You pressed the power button. What do you want to do?" -t "warning"
 #
 # Moving around:
 #
