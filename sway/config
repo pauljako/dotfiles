@@ -102,6 +102,11 @@ layer_effects "panel" {
   corner_radius 10;
   blur_xray enable;
 }
+layer_effects "waybar" {
+  blur enable;
+  corner_radius 10;
+  blur_xray enable;
+}
 layer_effects "launcher" {
   blur enable;
   corner_radius 10;
@@ -158,6 +163,9 @@ font pango:JetBrainsMonoNerdFont 9
 
     # Lock the Screen
     bindsym $mod+p exec $lock
+
+    # Turn the screen on/off
+    bindsym $mod+Shift+P output eDP-1 power toggle
 
     # Take a Screenshot
     bindsym $mod+s exec $screenshot
@@ -312,6 +320,8 @@ bindsym $mod+r mode "resize"
 bar {
      id 0
      position top
+
+     swaybar_command waybar
  
      # When the status_command prints a new line to stdout, swaybar updates.
      # The default just shows the current date and time.
