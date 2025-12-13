@@ -77,6 +77,8 @@ for_window [app_id="dev.zed.Zed"] move container to workspace 3; workspace 3
 for_window [app_id="Code"] move container to workspace 3; workspace 3
 for_window [class="jetbrains-idea-ce"] move container to workspace 3; workspace 3
 for_window [class="jetbrains-pycharm-ce"] move container to workspace 3; workspace 3
+for_window [app_id="jetbrains-idea-ce"] move container to workspace 3; workspace 3
+for_window [app_id="jetbrains-pycharm-ce"] move container to workspace 3; workspace 3
 
 for_window [app_id="org.prismlauncher.PrismLauncher"] move container to workspace 4; workspace 4
 for_window [class="steam"] move container to workspace 4; workspace 4
@@ -315,6 +317,11 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+mode "passthrough" {
+    bindsym $mod+Shift+Escape mode "default"
+}
+bindsym $mod+Shift+O mode "passthrough"
 
 #
 # Status Bar:
