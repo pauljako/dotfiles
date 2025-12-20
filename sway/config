@@ -90,6 +90,7 @@ for_window [class="Signal"] move container to workspace 5; workspace 5
 for_window [app_id="business.braid.polycule"] move container to workspace 5; workspace 5
 for_window [app_id="cinny"] move container to workspace 5; workspace 5
 for_window [app_id="fluffychat"] move container to workspace 5; workspace 5
+for_window [app_id="nheko"] move container to workspace 5; workspace 5
 
 # Floating Rules
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable; sticky enable
