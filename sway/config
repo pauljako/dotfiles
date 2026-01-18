@@ -28,7 +28,7 @@ set $menu j4-dmenu-desktop --no-generic --dmenu="$dmenu"
 set $background ~/.wallpaper
 set $lock swaylock -i $background -F
 
-set $powernag_generic -y "overlay" -t "warning" -Z "Exit Sway" "swaymsg exit" -Z "Shutdown" "loginctl poweroff" -Z "Reboot" "loginctl reboot" -Z "Suspend" "loginctl suspend" -Z "Hibernate" "loginctl hibernate"
+set $powernag_generic -y "overlay" -t "warning" -Z "Exit Sway" "swaymsg exit" -Z "Shutdown" "systemctl poweroff" -Z "Reboot" "systemctl reboot" -Z "Suspend" "systemctl suspend" -Z "Hibernate" "systemctl hibernate"
 
 set $screenshot grimshot --notify --cursor savecopy anything
 ### Output configuration
