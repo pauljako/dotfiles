@@ -153,8 +153,11 @@ then
     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 fi
 #
-# Alias please to run0, doas, sudo or su
-if command -v doas &> /dev/null
+# Alias please to pkexec, doas, sudo, run0 or su
+if command -v pkexec &> /dev/null
+then
+    alias please='pkexec env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" DISPLAY="$DISPLAY"'
+elif command -v doas &> /dev/null
 then
     alias please='doas env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" DISPLAY="$DISPLAY"'
 elif command -v sudo &> /dev/null
@@ -169,12 +172,12 @@ then
 fi
 #
 # set the correct editor
-if command -v hx &> /dev/null
-then
-    export EDITOR="hx"
-elif command -v nvim &> /dev/null
+if command -v nvim &> /dev/null
 then
     export EDITOR="nvim"
+elif command -v hx &> /dev/null
+then
+    export EDITOR="hx"
 elif command -v vim &> /dev/null
 then
     export EDITOR="vim"
